@@ -12,16 +12,22 @@ TESTBINS=$(patsubst $(TEST)/%.c, $(TEST)/bin/%, $(TESTS))
 
 all: $(BIN)
 
-$(BIN): $(OBJS)
+$(BIN): $(OBJS) $(BINDIR)
 	$(CC) $(OBJS) -o $@
 
-$(OBJ)/%.o: $(SRC)/%.c
+$(OBJ)/%.o: $(SRC)/%.c $(OBJ)
 	$(CC) -c $< -o $@
 
 $(TEST)/bin/%: $(TEST)/%.c $(OBJS)
 	$(CC) $< $(OBJS) -o $@ -lcriterion
 
 $(TEST)/bin:
+	mkdir $@
+
+$(OBJ):
+	mkdir $@
+
+$(BINDIR):
 	mkdir $@
 
 test: $(TESTBINS)
