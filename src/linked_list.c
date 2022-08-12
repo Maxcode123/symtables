@@ -34,6 +34,17 @@ int equal_nodes(Node* n1, Node* n2)
     return FALSE;
 }
 
+int has_node(char* key, Node* head)
+{
+    Node* n = head;
+    while (n != NULL)
+    {
+        if (strcmp(n->key, key) == 0) return TRUE;
+        n = n->next;
+    }
+    return FALSE;
+}
+
 void printn(Node* n)
 {
     printf("key: %s, value: %d\n", n->key, n->val);
