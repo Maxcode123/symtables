@@ -5,6 +5,7 @@ Node* init_Node(char* key, int val)
     Node* ptr = (Node*)malloc(sizeof(Node));
     ptr->key = key;
     ptr->val = val;
+    ptr->next = NULL;
     return ptr;
 }
 
