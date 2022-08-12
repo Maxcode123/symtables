@@ -28,18 +28,27 @@ void add_node(Node* n, Node** head_ptr)
     }
 }
 
-int equal_nodes(Node* n1, Node* n2)
+Node* get_node(char* key, Node* head)
 {
-    if (strcmp(n1->key, n2->key) == 0) return TRUE;
-    return FALSE;
+    Node* n = head;
+    while (n != NULL) 
+    {
+        if (strcmp(n->key, key) == 0) return n;
+        n = n->next;
+    }
+    return NULL;
 }
 
-int has_node(char* key, Node* head)
+int subs_node(char* key, int val, Node* head)
 {
     Node* n = head;
     while (n != NULL)
     {
-        if (strcmp(n->key, key) == 0) return TRUE;
+        if (strcmp(n->key, key) == 0)
+        {
+            n->val = val;
+            return TRUE;
+        }
         n = n->next;
     }
     return FALSE;

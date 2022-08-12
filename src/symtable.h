@@ -7,5 +7,7 @@ typedef struct ST {
     Node* head; // pointer to linked list head
 } ST;
 
-int get(char* key, ST* st);
+ST* init_ST();
+int* get(char* key, ST* st);
 void put(char* key, int val, ST* st);
+void printst(ST* st);

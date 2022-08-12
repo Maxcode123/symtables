@@ -1,12 +1,12 @@
 #include "linked_list.h"
+#include "symtable.h"
 
 void main()
 {
-    Node* n = init_Node("key1", 1);
-    Node* n2 = init_Node("key2", 2);
-    Node* h = init_List();
-    add_node(n, &h);
-    add_node(n2, &h);
-    printl(h);
-    if (has_node("key1", h)) printf("list has node n.\n");
+    ST* st = init_ST();
+    put("a_", 0, st);
+    put("b_", 2, st);
+    printst(st);
+    int* c = get("c_", st);
+    if (c == NULL) printf("c is NULL\n");
 }
