@@ -2,10 +2,15 @@
 
 Node* init_Node(char* key, int val)
 {
-    Node n = {.key = key, .val = val};
     Node* ptr = (Node*)malloc(sizeof(Node));
-    ptr = &n;
+    ptr->key = key;
+    ptr->val = val;
     return ptr;
+}
+
+Node* init_List()
+{
+    return NULL;
 }
 
 void add_node(Node* n, Node** head_ptr)

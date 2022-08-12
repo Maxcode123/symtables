@@ -12,6 +12,7 @@ typedef struct Node
 } Node;
 
 Node* init_Node(char* key, int val);
+Node* init_List();
 void add_node(Node* n, Node** head_ptr);
 void printn(Node* n);
 void printl(Node* head);

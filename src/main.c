@@ -3,5 +3,9 @@
 void main()
 {
     Node* n = init_Node("key1", 1);
-    printn(n);
+    Node* n2 = init_Node("key2", 2);
+    Node* h = init_List();
+    add_node(n, &h);
+    add_node(n2, &h);
+    printl(h);
 }
