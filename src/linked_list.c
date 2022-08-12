@@ -28,6 +28,12 @@ void add_node(Node* n, Node** head_ptr)
     }
 }
 
+int equal_nodes(Node* n1, Node* n2)
+{
+    if (strcmp(n1->key, n2->key) == 0) return TRUE;
+    return FALSE;
+}
+
 void printn(Node* n)
 {
     printf("key: %s, value: %d\n", n->key, n->val);
