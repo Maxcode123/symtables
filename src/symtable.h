@@ -1,7 +1,7 @@
 #pragma once
 
 #include "base.h"
-#include "linked_list.h"
+#include "llist.h"
 
 typedef struct ST {
 // Linked list implementation of Symbol table.
