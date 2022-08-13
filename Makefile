@@ -3,8 +3,6 @@ SRC=src
 SRCS=$(wildcard $(SRC)/seqser/*.c)
 OBJ=obj
 OBJS=$(patsubst $(SRC)/seqser/%.c, $(OBJ)/%.o, $(SRCS))
-BINDIR=bin
-BIN=$(BINDIR)/main
 TEST=tests
 TESTS=$(wildcard $(TEST)/*.c)
 TESTOBJS=$(patsubst $(TEST)/%.c, $(TEST)/obj/%.o, $(TESTS))
@@ -27,11 +25,14 @@ $(TEST)/bin:
 $(OBJ):
 	mkdir $@
 
-$(BINDIR):
-	mkdir $@
-
 test: $(TESTBINS)
 	for test in $(TESTBINS) ; do ./$$test ; done
 
-clean:
-	rm -rf $(BINDIR)/* $(OBJ)/* $(TEST)/bin/*
+$(OBJ)/array.o: $(SRC)/binser/array.c $(OBJ)
+	$(CC) -c $< -o $@
+
+$(TEST)/bin/arraytest: $(TEST)/arraytest.c $(OBJ)/array.o
+	$(CC) $^ -o $@ -lcriterion
+
+test-array: $(TEST)/bin/arraytest
+	$<
