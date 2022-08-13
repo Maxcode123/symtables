@@ -1,27 +1,27 @@
-#include "symtable.h"
+#include "seqser_st.h"
 
-ST* init_ST()
+SequentialSearchST* init_ST()
 {
-    ST* st = (ST*)malloc(sizeof(ST));
+    SequentialSearchST* st = (SequentialSearchST*)malloc(sizeof(SequentialSearchST));
     st->head = init_List();
     return st;
 }
 
-int* get(char* key, ST* st)
+int* get(char* key, SequentialSearchST* st)
 {
     Node* n = get_node(key, st->head);
     if (n == NULL) return NULL;
     return &n->val;
 }
 
-void put(char* key, int val, ST* st)
+void put(char* key, int val, SequentialSearchST* st)
 {
     if (subs_node(key, val, st->head)) return;
     Node* n = init_Node(key, val);
     add_node(n, &st->head);
 }
 
-void printst(ST* st)
+void printst(SequentialSearchST* st)
 {
     printl(st->head);
 }
