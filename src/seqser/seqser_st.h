@@ -1,6 +1,6 @@
 #pragma once
 
-#include "base.h"
+#include "../base.h"
 #include "llist.h"
 
 typedef struct SequentialSearchST {

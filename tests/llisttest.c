@@ -1,6 +1,6 @@
 #include <criterion/criterion.h>
 
-#include "../src/llist.h"
+#include "../src/seqser/llist.h"
 
 Test(llisttest, initnode)
 {
