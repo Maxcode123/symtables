@@ -3,7 +3,7 @@
 void* initstatic_Array(int size, char* type)
 {
     size_t s;
-    if (strcmp(type, "key") == 0) s = sizeof(char);
+    if (strcmp(type, "key") == 0) s = sizeof(key);
     else if (strcmp(type, "value") == 0) s = sizeof(int);
     else {
         printf("Cannot initialize static array, unknown type: %s\n", type);
