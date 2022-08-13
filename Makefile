@@ -1,8 +1,8 @@
 CC=gcc
 SRC=src
-SRCS=$(wildcard $(SRC)/*.c)
+SRCS=$(wildcard $(SRC)/seqser/*.c)
 OBJ=obj
-OBJS=$(patsubst $(SRC)/%.c, $(OBJ)/%.o, $(SRCS))
+OBJS=$(patsubst $(SRC)/seqser/%.c, $(OBJ)/%.o, $(SRCS))
 BINDIR=bin
 BIN=$(BINDIR)/main
 TEST=tests
@@ -15,7 +15,7 @@ all: $(BIN)
 $(BIN): $(OBJS) $(BINDIR)
 	$(CC) $(OBJS) -o $@
 
-$(OBJ)/%.o: $(SRC)/%.c $(OBJ)
+$(OBJ)/%.o: $(SRC)/seqser/%.c $(OBJ)
 	$(CC) -c $< -o $@
 
 $(TEST)/bin/%: $(TEST)/%.c $(OBJS)
