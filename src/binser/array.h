@@ -8,9 +8,10 @@
 typedef char key[KEYSIZE];
 
 typedef struct DynamicArray {
+    int i; // current index
     int n; // size
-    void* array;
+    void* array; // underlying static array
 } DynamicArray;
 
 void* initstatic_Array(int size, char* type);
-DynamicArray* init_Array();
+DynamicArray* init_Array(char* type);
