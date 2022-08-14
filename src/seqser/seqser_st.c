@@ -7,21 +7,22 @@ SequentialSearchST* init_ST()
     return st;
 }
 
-void get(char* key, SequentialSearchST* st, int* val_ptr)
+void get(key k, SequentialSearchST* st, Int* val)
 {
-    Node* n = get_node(key, st->head);
+    Node* n = get_node(k, st->head);
     if (n == NULL)
     {
-        val_ptr = NULL;
+        val->isnull = true;
         return;
     } 
-    *val_ptr = n->val;
+    val->value = n->v;
+    val->isnull = false;
 }
 
-void put(char* key, int val, SequentialSearchST* st)
+void put(key k, int v, SequentialSearchST* st)
 {
-    if (subs_node(key, val, st->head)) return;
-    Node* n = init_Node(key, val);
+    if (subs_node(k, v, st->head)) return;
+    Node* n = init_Node(k, v);
     add_node(n, &st->head);
 }
 

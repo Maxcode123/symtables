@@ -73,12 +73,12 @@ void get(key k, BinarySearchST* st, Int* val)
     val->isnull = true;
 }
 
-void put(key k, int val, BinarySearchST* st)
+void put(key k, int v, BinarySearchST* st)
 {
     int i = rank(k, st);
     if (i < st->i + 1 & compare(k, get_key(st->keys, i)) == 0)
     {
-        put_value(st->values, val, i);
+        put_value(st->values, v, i);
         return;
     }
     if (st->i == st->values->n) // underlying static arrays are full
@@ -90,6 +90,6 @@ void put(key k, int val, BinarySearchST* st)
         shift_kv(st, j, j-1);
     }
     put_key(st->keys, k, i);
-    put_value(st->values, val, i);
+    put_value(st->values, v, i);
     st->i++;
 }

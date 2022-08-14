@@ -11,14 +11,6 @@ typedef struct {
     int i; // current index
 } BinarySearchST;
 
-typedef struct {
-/* This type is specifically made to be returned (manipulated via pointer) when
-by the get function. In order to distinguish when a returned value is NULL 
-(i.e. when the key is not in the symbol table) the boolean isnull is used. */
-    int value; // value returned by get
-    bool isnull; // true only if function get does not find key
-} Int;
-
 BinarySearchST* init_ST();
 /* Allocates memory for the symbol table and the keys, values arrays. 
 Initializes the table with the default size. */
@@ -46,5 +38,5 @@ void get(key k, BinarySearchST* st, Int* val);
 /* Puts the value associated with k to val. If no such key exists in the symbol
  table, sets isnull=true for val.  */
 
-void put(key k, int val, BinarySearchST* st);
+void put(key k, int v, BinarySearchST* st);
 // Associates val with k. If k exists, it overwrites current value.

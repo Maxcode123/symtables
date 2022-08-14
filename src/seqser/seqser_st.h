@@ -11,11 +11,11 @@ typedef struct {
 SequentialSearchST* init_ST();
 // Symbol table constructor; allocates memory for the ST and initializes head.
 
-void get(char* key, SequentialSearchST* st, int* val_ptr);
+void get(key k, SequentialSearchST* st, Int* val);
 /* Insert the value of the given key where val_ptr points to. If there is no 
 such key, points val_ptr to NULL. */
 
-void put(char* key, int val, SequentialSearchST* st);
+void put(key k, int v, SequentialSearchST* st);
 /* Associates val with key. If the key already exists, val overwrites the 
 current value. */
 
