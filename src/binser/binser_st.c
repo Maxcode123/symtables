@@ -29,6 +29,12 @@ int rank(key k, BinarySearchST* st)
     return lo;
 }
 
+void shift_kv(BinarySearchST* st, int i, int j)
+{
+    shift_value(&st->values, i, j);
+    shift_key(&st->keys, i, j);
+}
+
 int* get(key k, BinarySearchST* st)
 {
     if (isempty(st)) return NULL;
@@ -52,8 +58,7 @@ void put(key k, int val, BinarySearchST* st)
     }
     for (int j = st->i; j > i; j--)
     {
-        put_key(&st->keys, get_key(&st->keys, j-1), j);
-        put_value(&st->values, get_value(&st->values, j-1), j);
+        shift_kv(st, j, j-1);
     }
     put_key(&st->keys, k, i);
     put_value(&st->values, val, i);

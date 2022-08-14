@@ -25,7 +25,7 @@ int get_value(DynamicArray* s, int i);
 key get_key(DynamicArray* s, int i);
 void put_value(DynamicArray* s, int val, int i);
 void put_key(DynamicArray* s, key k, int i);
-void exchange_value(DynamicArray* s, int i, int j);
-void exchange_key(DynamicArray* s, int i, int j);
+void shift_value(DynamicArray* s, int i, int j);
+void shift_key(DynamicArray* s, int i, int j);
 void resize_array(DynamicArray* s);
 

@@ -41,3 +41,13 @@ void put_key(DynamicArray* s, key k, int i)
     item it = {.k=k};
     s->array[i] = it;
 }
+
+void shift_value(DynamicArray* s, int i, int j)
+{
+    put_value(s, get_value(s, j), i);
+}
+
+void shift_key(DynamicArray* s, int i, int j)
+{
+    put_key(s, get_key(s, j), i);
+}

@@ -12,5 +12,6 @@ BinarySearchST* init_ST();
 int compare(key k1, key k2);
 bool isempty(BinarySearchST* st);
 int rank(key k, BinarySearchST* st);
+void shift_kv(BinarySearchST* st, int i, int j);
 int* get(key k, BinarySearchST* st);
 void put(key k, int val, BinarySearchST* st);
