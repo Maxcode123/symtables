@@ -4,8 +4,6 @@
 
 #define RESIZECONST 2 // array resizing constant
 
-typedef char* key; // key type
-
 typedef union {
 // item hold in dynamic arrays
     key k;

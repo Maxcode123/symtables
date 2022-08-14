@@ -8,3 +8,5 @@ other header files */
 
 #define TRUE 1
 #define FALSE 0
+
+typedef char* key; // key type

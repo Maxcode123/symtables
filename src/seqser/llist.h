@@ -5,12 +5,12 @@
 typedef struct Node
 // Node of linked list
 {
-    char* key;
-    int val;
+    key k;
+    int v;
     struct Node* next;
 } Node;
 
-Node* init_Node(char* key, int val);
+Node* init_Node(key k, int v);
 /* Node constructor; allocates memory for a Node and returns a pointer to a 
 Node with the given values. */
 
@@ -21,13 +21,13 @@ the initialization value. */
 void add_node(Node* n, Node** head_ptr);
 // Adds a node to the linked list.
 
-Node* get_node(char* key, Node* head);
+Node* get_node(key k, Node* head);
 /* Returns a pointer to the node in the list matching the given key. If there 
 is no such Node, return NULL. */
 
-int subs_node(char* key, int val, Node* head);
-/* Substitutes the val of the Node with the given key. If there is no such
-Node, return FALSE, otherwise returns TRUE. */
+bool subs_node(key k, int v, Node* head);
+/* Substitutes the value of the Node with the given key. If there is no such
+Node, returns false, otherwise returns true. */
 
 void printn(Node* n);
 /* Prints Node with format:
