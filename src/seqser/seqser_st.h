@@ -3,7 +3,7 @@
 #include "../base.h"
 #include "llist.h"
 
-typedef struct SequentialSearchST {
+typedef struct {
 // Linked list implementation of Symbol table.
     Node* head; // pointer to linked list head
 } SequentialSearchST;
