@@ -22,10 +22,11 @@ typedef struct {
 item* initstatic_Array(int size);
 DynamicArray* init_Array();
 bool full(DynamicArray* s);
-void exchange_value(DynamicArray*, int i, int j);
-void exchange_key(DynamicArray*, int i, int j);
 int get_value(DynamicArray* s, int i);
 key* get_key(DynamicArray* s, int i);
 void put_value(DynamicArray* s, int val, int i);
 void put_key(DynamicArray* s, key k, int i);
+void exchange_value(DynamicArray* s, int i, int j);
+void exchange_key(DynamicArray* s, int i, int j);
+void resize_array(DynamicArray* s);
 

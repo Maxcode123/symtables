@@ -29,9 +29,6 @@ int rank(key k, BinarySearchST* st)
     return lo;
 }
 
-void resize(BinarySearchST* st)
-{}
-
 int* get(key k, BinarySearchST* st)
 {
     if (isempty(st)) return NULL;
@@ -48,7 +45,11 @@ void put(key k, int val, BinarySearchST* st)
         put_value(&st->values, val, i);
         return;
     }
-    if (st->i == st->values.i) resize(st);// underlying static array is full
+    if (st->i == st->values.i) // underlying static array is full
+    {
+        resize_array(&st->keys);
+        resize_array(&st->values);
+    }
     for (int j = st->i; j > i; j--)
     {
         put_key(&st->keys, get_key(&st->keys, j-1), j);

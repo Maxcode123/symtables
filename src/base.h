@@ -4,6 +4,7 @@ other header files */
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
+#include <stdbool.h>
 
 #define TRUE 1
 #define FALSE 0
