@@ -6,7 +6,4 @@ other header files */
 #include <string.h>
 #include <stdbool.h>
 
-#define TRUE 1
-#define FALSE 0
-
 typedef char* key; // key type
