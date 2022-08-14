@@ -25,9 +25,6 @@ $(TEST)/bin:
 $(OBJ):
 	mkdir $@
 
-test: $(TESTBINS)
-	for test in $(TESTBINS) ; do ./$$test ; done
-
 $(OBJ)/array.o: $(SRC)/binser/array.c $(OBJ)
 	$(CC) -c $< -o $@
 
@@ -35,4 +32,13 @@ $(TEST)/bin/arraytest: $(TEST)/arraytest.c $(OBJ)/array.o
 	$(CC) $^ -o $@ -lcriterion
 
 test-array: $(TEST)/bin/arraytest
+	$<
+
+$(OBJ)/binser_st.o: $(SRC)/binser/binser_st.c $(OBJ)
+	$(CC) -c $< -o $@ 
+
+$(TEST)/bin/binser: $(TEST)/binsersttest.c $(OBJ)/binser_st.o $(OBJ)/array.o
+	$(CC) $^ -o $@ -lcriterion
+
+test-binser: $(TEST)/bin/binser
 	$<
