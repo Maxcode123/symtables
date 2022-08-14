@@ -25,8 +25,19 @@ int get_value(DynamicArray* s, int i)
     return s->array[i].v;
 }
 
-key* get_key(DynamicArray* s, int i)
+key get_key(DynamicArray* s, int i)
 {
     return s->array[i].k;
 }
 
+void put_value(DynamicArray* s, int val, int i)
+{
+    item it = {.v=val};
+    s->array[i] = it;
+}
+
+void put_key(DynamicArray* s, key k, int i)
+{
+    item it = {.k=k};
+    s->array[i] = it;
+}
