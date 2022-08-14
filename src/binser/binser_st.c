@@ -21,7 +21,7 @@ int rank(key k, BinarySearchST* st)
     while (lo <= hi)
     {
         mid = lo + (hi - lo) / 2;
-        cmp = compare(k, get_key(&st->keys, mid));
+        cmp = compare(k, get_key(st->keys, mid));
         if (cmp < 0) hi = mid - 1;
         else if (cmp > 0) lo = mid + 1;
         else return mid;
@@ -31,36 +31,41 @@ int rank(key k, BinarySearchST* st)
 
 void shift_kv(BinarySearchST* st, int i, int j)
 {
-    shift_value(&st->values, i, j);
-    shift_key(&st->keys, i, j);
+    shift_value(st->values, i, j);
+    shift_key(st->keys, i, j);
+}
+
+void resize_arrays(BinarySearchST* st)
+{
+    resize_array(st->keys);
+    resize_array(st->values);
 }
 
 int* get(key k, BinarySearchST* st)
 {
     if (isempty(st)) return NULL;
     int i = rank(k, st);
-    if (i < st->i & compare(k, get_key(&st->keys, i)) == 0) return get_value(&st->values, i);
+    if (i < st->i & compare(k, get_key(st->keys, i)) == 0) return get_value(st->values, i);
     else return NULL;
 }
 
 void put(key k, int val, BinarySearchST* st)
 {
     int i = rank(k, st);
-    if (i < st->i & compare(k, get_key(&st->keys, i)) == 0)
+    if (i < st->i & compare(k, get_key(st->keys, i)) == 0)
     {
-        put_value(&st->values, val, i);
+        put_value(st->values, val, i);
         return;
     }
-    if (st->i == st->values.i) // underlying static array is full
+    if (st->i == st->values->n) // underlying static arrays are full
     {
-        resize_array(&st->keys);
-        resize_array(&st->values);
+        resize_arrays(st);
     }
     for (int j = st->i; j > i; j--)
     {
         shift_kv(st, j, j-1);
     }
-    put_key(&st->keys, k, i);
-    put_value(&st->values, val, i);
+    put_key(st->keys, k, i);
+    put_value(st->values, val, i);
     st->i++;
 }

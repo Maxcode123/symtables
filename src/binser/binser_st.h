@@ -3,8 +3,8 @@
 #include "array.h"
 
 typedef struct {
-    DynamicArray keys;
-    DynamicArray values;
+    DynamicArray* keys;
+    DynamicArray* values;
     int i; // current index
 } BinarySearchST;
 
@@ -13,5 +13,6 @@ int compare(key k1, key k2);
 bool isempty(BinarySearchST* st);
 int rank(key k, BinarySearchST* st);
 void shift_kv(BinarySearchST* st, int i, int j);
+void resize_arrays(BinarySearchST* st);
 int* get(key k, BinarySearchST* st);
 void put(key k, int val, BinarySearchST* st);
