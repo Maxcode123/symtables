@@ -85,6 +85,6 @@ Test(arraytest, resizearray)
     }
     resize_array(&a);
     cr_assert(a->n != 3, "resize_array did not change array size.");
-    cr_assert(a->n == 3 * RESIZECONST, "resize_array did not resize array correctly.");
+    cr_assert(a->n == 6, "resize_array did not resize array correctly.");
     for (int i = 0; i < 3; i++) cr_assert(a->array[i].v == i, "resize_array did not copy items correctly.");
 }

@@ -1,7 +1,22 @@
 #include "binser_st.h"
 
 BinarySearchST* init_ST()
-{}
+{
+    BinarySearchST* st = (BinarySearchST*)malloc(sizeof(BinarySearchST));
+    st->i = -1;
+    st->keys = init_Array(ARRAYINITSIZE);
+    st->values = init_Array(ARRAYINITSIZE);
+    return st;
+}
+
+BinarySearchST* sinit_ST(int size)
+{
+    BinarySearchST* st = (BinarySearchST*)malloc(sizeof(BinarySearchST));
+    st->i = -1;
+    st->keys = init_Array(size);
+    st->values = init_Array(size);
+    return st;
+}
 
 int compare(key k1, key k2)
 {
@@ -10,13 +25,13 @@ int compare(key k1, key k2)
 
 bool isempty(BinarySearchST* st)
 {
-    return st->i == 0;
+    return st->i == -1;
 }
 
 int rank(key k, BinarySearchST* st)
 {
     int lo = 0;
-    int hi = st->i - 1;
+    int hi = st->i;
     int mid, cmp;
     while (lo <= hi)
     {
@@ -37,22 +52,31 @@ void shift_kv(BinarySearchST* st, int i, int j)
 
 void resize_arrays(BinarySearchST* st)
 {
-    resize_array(st->keys);
-    resize_array(st->values);
+    resize_array(&st->keys);
+    resize_array(&st->values);
 }
 
-int* get(key k, BinarySearchST* st)
+void get(key k, BinarySearchST* st, Int* val)
 {
-    if (isempty(st)) return NULL;
+    if (isempty(st))
+    {
+        val->isnull = true;
+        return;
+    }
     int i = rank(k, st);
-    if (i < st->i & compare(k, get_key(st->keys, i)) == 0) return get_value(st->values, i);
-    else return NULL;
+    if (i < st->i + 1 & compare(k, get_key(st->keys, i)) == 0)
+    {
+        val->value = get_value(st->values, i);
+        val->isnull = false;
+        return;
+    }
+    val->isnull = true;
 }
 
 void put(key k, int val, BinarySearchST* st)
 {
     int i = rank(k, st);
-    if (i < st->i & compare(k, get_key(st->keys, i)) == 0)
+    if (i < st->i + 1 & compare(k, get_key(st->keys, i)) == 0)
     {
         put_value(st->values, val, i);
         return;

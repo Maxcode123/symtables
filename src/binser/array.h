@@ -2,7 +2,6 @@
 
 #include "../base.h"
 
-#define ARRAYINITSIZE 100 // initial size of dynamic array
 #define RESIZECONST 2 // array resizing constant
 
 typedef char* key; // key type

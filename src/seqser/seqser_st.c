@@ -7,11 +7,15 @@ SequentialSearchST* init_ST()
     return st;
 }
 
-int* get(char* key, SequentialSearchST* st)
+void get(char* key, SequentialSearchST* st, int* val_ptr)
 {
     Node* n = get_node(key, st->head);
-    if (n == NULL) return NULL;
-    return &n->val;
+    if (n == NULL)
+    {
+        val_ptr = NULL;
+        return;
+    } 
+    *val_ptr = n->val;
 }
 
 void put(char* key, int val, SequentialSearchST* st)
