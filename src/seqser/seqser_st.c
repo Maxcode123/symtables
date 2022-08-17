@@ -2,14 +2,17 @@
 
 SequentialSearchST* init_ST()
 {
-    SequentialSearchST* st = (SequentialSearchST*)malloc(sizeof(SequentialSearchST));
-    st->head = init_List();
-    return st;
+    SequentialSearchST* self = (SequentialSearchST*)malloc(sizeof(SequentialSearchST));
+    self->head = init_List();
+    self->get = &_get;
+    self->put = &_put;
+    self->print = &_printst;
+    return self;
 }
 
-void get(key k, SequentialSearchST* st, Int* val)
+void _get(SequentialSearchST* self, key k, Int* val)
 {
-    Node* n = get_node(k, st->head);
+    Node* n = get_node(k, self->head);
     if (n == NULL)
     {
         val->isnull = true;
@@ -19,14 +22,14 @@ void get(key k, SequentialSearchST* st, Int* val)
     val->isnull = false;
 }
 
-void put(key k, int v, SequentialSearchST* st)
+void _put(SequentialSearchST* self, key k, int v)
 {
-    if (subs_node(k, v, st->head)) return;
+    if (subs_node(k, v, self->head)) return;
     Node* n = init_Node(k, v);
-    add_node(n, &st->head);
+    add_node(n, &self->head);
 }
 
-void printst(SequentialSearchST* st)
+void _printst(SequentialSearchST* self)
 {
-    printl(st->head);
+    printl(self->head);
 }
