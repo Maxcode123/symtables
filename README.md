@@ -5,7 +5,7 @@ The symbol tables implemented in this project have strings as keys and integers 
 Algorithms taken from: [Robert Sedgewick, Kevin Wayne, Algorithms, 4th edition.](https://www.goodreads.com/book/show/10803540-algorithms?from_search=true&from_srp=true&qid=6vTB9QpdFv&rank=2)
 
 ## project tree
-![image](tree.png)
+![image](https://user-images.githubusercontent.com/64724733/185734501-34845367-da34-419d-97cd-2cfdd1fd8fe7.png)
 
 ##
 seqser contains the code for a linked-list sequential search symbol table implementation.</br>
